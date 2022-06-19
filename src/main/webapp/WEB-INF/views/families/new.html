@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New family</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/families}" th:object="${family}">
+    <label for="name">Enter surname: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Surname Error</div>
+    <br/>
+
+    <label for="travelTo">Enter travel To: </label>
+    <input type="text" th:field="*{travelTo}" id="travelTo">
+    <div style="color:red" th:if="${#fields.hasErrors('travelTo')}" th:errors="*{travelTo}">Travel to Error</div>
+    <br/>
+
+    <label for="members">Enter members: </label>
+    <input type="text" th:field="*{members}" id="members"/>
+    <div style="color:red" th:if="${#fields.hasErrors('members')}" th:errors="*{members}">Members Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

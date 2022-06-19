@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Family</title>
+</head>
+<body>
+<p th:text="${'Name:' + family.getName()}">VALUE</p>
+<p th:text="${'Travel to:' + family.getTravelTo()}">VALUE</p>
+<p th:text="${'Members: ' + family.getMembers()}">VALUE</p>
+<p th:text="${'Id: ' + family.getId()}">VALUE</p>
+
+<a th:href="@{/families/{id}/edit(id=${family.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/families/{id}(id=${family.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

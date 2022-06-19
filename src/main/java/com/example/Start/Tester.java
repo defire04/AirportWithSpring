@@ -1,9 +1,14 @@
+package com.example.Start;
 
-import models.Plane;
-import models.Family;
+
+import com.example.controllers.BorderService;
+import com.example.models.Family;
+import com.example.models.Plane;
+
 import java.util.List;
-import controllers.BorderService;
 import java.util.stream.Collectors;
+
+
 
 public class Tester {
     public static void getTestHowManyPeopleTravelToEachDirection() {

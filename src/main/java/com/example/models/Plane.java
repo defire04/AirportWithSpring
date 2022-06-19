@@ -1,7 +1,6 @@
-package models;
+package com.example.models;
 
 import java.util.List;
-
 
 public class Plane implements Runnable {
     public static final int SEATS = 40;

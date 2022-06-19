@@ -1,7 +1,7 @@
-package controllers;
+package com.example.controllers;
 
-import models.Plane;
-import models.Family;
+import com.example.models.Plane;
+import com.example.models.Family;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -10,6 +10,6 @@ public class BorderService {
 
     public static void arrivalOfFamiliesToAirport(List<Plane> planeList) {
         planeList.forEach(plane -> allArrivingFamiliesAtAirport.addAll(plane.getFamilies()));
-        controllers.TourController.sortingPassengersByCity(allArrivingFamiliesAtAirport);
+        com.example.controllers.TourController.sortingPassengersByCity(allArrivingFamiliesAtAirport);
     }
 }

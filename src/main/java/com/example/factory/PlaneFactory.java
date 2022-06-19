@@ -1,6 +1,6 @@
-package factory;
+package com.example.factory;
 
-import models.Plane;
+import com.example.models.Plane;
 
 import java.util.*;
 

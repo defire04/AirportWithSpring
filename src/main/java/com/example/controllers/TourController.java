@@ -1,9 +1,9 @@
-package controllers;
+package com.example.controllers;
 
 
 
 
-import models.Family;
+import com.example.models.Family;
 
 import java.util.Map;
 import java.util.List;
@@ -17,7 +17,7 @@ public class TourController {
                 .collect(Collectors.groupingBy(Family::getTravelTo, Collectors.toList()));
 
         for (Map.Entry<String, List<Family>> cityTo : sortedToCityMap.entrySet()) {
-            new models.TourToCity(cityTo.getKey(), cityTo.getValue());
+            new com.example.models.TourToCity(cityTo.getKey(), cityTo.getValue());
         }
     }
 }

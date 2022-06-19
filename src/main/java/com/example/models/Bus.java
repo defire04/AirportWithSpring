@@ -1,10 +1,9 @@
-package models;
+package com.example.models;
 
 
 import java.util.List;
 import java.util.Objects;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Bus implements Runnable {
     private final String driveTo;
