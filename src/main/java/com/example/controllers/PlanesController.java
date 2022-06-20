@@ -19,8 +19,6 @@ public class PlanesController {
 //        for (int i = 0; i < 2; i++) {
             planeResultList.add(new Plane(new ArrayList<>(), i + 1));
         }
-
-
         for (Family family : familyDaoWithJdbc.getFamiliesList()) {
             for (Plane plane : planeResultList) {
                 if (!family.isFamilyInPlane()) {
@@ -32,8 +30,6 @@ public class PlanesController {
                 }
             }
         }
-
-
         return planeResultList;
     }
 }
