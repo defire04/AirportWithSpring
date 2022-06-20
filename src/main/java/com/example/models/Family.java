@@ -18,6 +18,7 @@ public class Family {
     private int members;
     private boolean isFamilyInBus = false;
 
+    private boolean isFamilyInPlane = false;
     public Family() {
     }
 
@@ -73,6 +74,14 @@ public class Family {
         return isFamilyInBus;
     }
 
+    public boolean isFamilyInPlane() {
+        return isFamilyInPlane;
+    }
+
+    public void setFamilyInPlane(boolean familyInPlane) {
+        isFamilyInPlane = familyInPlane;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,7 +98,7 @@ public class Family {
     @Override
     public String toString() {
         return "Family = " + this.name +
-                " TravelTo=" + this.travelTo +
-                " Members=" + this.members + " ";
+                ", TravelTo = " + this.travelTo +
+                ", Members = " + this.members + ", Id = " + this.id;
     }
 }

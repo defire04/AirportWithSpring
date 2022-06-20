@@ -7,9 +7,12 @@ public class Plane implements Runnable {
     private final int flightNumber;
     private List<Family> families;
 
+    private int placeLeft;
+
     public Plane(List<Family> families, int flightNumber) {
         this.families = families;
         this.flightNumber = flightNumber;
+        this.placeLeft = SEATS;
         new Thread(this).start();
     }
 
@@ -23,6 +26,14 @@ public class Plane implements Runnable {
 
     public int getFlightNumber() {
         return flightNumber;
+    }
+
+    public int getPlaceLeft() {
+        return placeLeft;
+    }
+
+    public void setPlaceLeft(int placeLeft) {
+        this.placeLeft = placeLeft;
     }
 
     @Override
@@ -39,8 +50,7 @@ public class Plane implements Runnable {
     }
 
     public void infoAboutPeopleAboard() {
-        System.out.println(this.families.size() + " families arrived from aircraft number " + this.flightNumber + "!\n" +
-                "List of visiting families:" + this.families +
+        System.out.println(" The plane "+ this.flightNumber +" has started landing! " +
                 "\n----------------------------------------------");
     }
 }

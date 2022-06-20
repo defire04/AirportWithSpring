@@ -1,6 +1,6 @@
 package com.example.controllers;
 
-import com.example.dao.FamilyDao;
+import com.example.dao.FamilyDaoWithJdbcTemplate;
 import com.example.models.Family;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,22 +13,22 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/families")
 public class FamilyController {
-    private final FamilyDao familyDao;
+    private final FamilyDaoWithJdbcTemplate familyDaoWithJdbcTemplate;
 
     @Autowired
-    public FamilyController(FamilyDao familyDao) {
-        this.familyDao = familyDao;
+    public FamilyController(FamilyDaoWithJdbcTemplate familyDaoWithJdbcTemplate) {
+        this.familyDaoWithJdbcTemplate = familyDaoWithJdbcTemplate;
     }
 
     @GetMapping()
     public String index(Model model) {
-        model.addAttribute("families", familyDao.index());
+        model.addAttribute("families", familyDaoWithJdbcTemplate.index());
         return "families/index";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("family", familyDao.show(id));
+        model.addAttribute("family", familyDaoWithJdbcTemplate.show(id));
         return "families/show";
     }
 
@@ -43,13 +43,13 @@ public class FamilyController {
         if (bindingResult.hasErrors()) {
             return "families/new";
         }
-        familyDao.save(family);
+        familyDaoWithJdbcTemplate.save(family);
         return "redirect:/families";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
-        model.addAttribute("family", familyDao.show(id));
+        model.addAttribute("family", familyDaoWithJdbcTemplate.show(id));
         return "families/edit";
     }
 
@@ -58,13 +58,13 @@ public class FamilyController {
         if (bindingResult.hasErrors()) {
             return "families/edit";
         }
-        familyDao.update(id, family);
+        familyDaoWithJdbcTemplate.update(id, family);
         return "redirect:/families";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
-        familyDao.delete(id);
+        familyDaoWithJdbcTemplate.delete(id);
         return "redirect:/families";
     }
 }
